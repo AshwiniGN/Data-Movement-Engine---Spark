@@ -6,6 +6,7 @@ We deal with large amount of data where we need to move data from one source to 
 This projects helps in moving data with few simple configurations.
 
 Basic data validation done between source and target:
+
 Total records count,
 Distinct records count,
 columns count,
@@ -14,13 +15,17 @@ Total null records count
 ### Prerequisites
 
 1.Docker for Windows/Linux/Mac 
+
 2.pull the spark container from the repository
-docker pull dockerimage964/data_movement_spark
-3. pull the mysql image and start the mysql
+
+3. pull the mysql container from docker
+
 4. Intellij 
 
-### Installing
+### Installing on docker
+
 docker pull dockerimage964/data_movement_spark
+
 docker pull dockerimage964/mysql
 
 ## Running the tests
@@ -33,11 +38,13 @@ docker run -it -p 8088:8088 -p 8042:8042 -p 4040:4040 -h sandbox dockerimage964/
 
 docker pull dockerimage964/mysql
 
-docker run --name ms3 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password dockerimage964/mysql
+docker run --name ms3 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password dockerimage964/mysql   -->spin the container
 
 docker exec -it ms3 bash
 
-mysql -u root -ppassword
+mysql -u root -ppassword --> start the mysql instance
+
+create database : create database mydb;
 
 use mydb;
 
@@ -84,15 +91,15 @@ Ex param file :
  
  spark-submit --jars /usr/local/share/spark/JARS/mysql-connector-java-8.0.18.jar,/usr/local/share/spark/JARS/hadoop-aws-2.6.0.jar,/usr/local/share/spark/JARS/aws-java-sdk-1.7.4.jar,/usr/local/share/spark/JARS/log4j-1.2.17.jar,/usr/local/share/spark/JARS/commons-csv-1.3.jar,/usr/local/share/spark/JARS/slf4j-api-1.7.21.jar --class com.spark.movedata.FetchAndMoveData --files /usr/local/share/spark/log4j.properties --conf spark.storage.memoryFraction=0.6 --conf spark.shuffle.memoryFraction=0.2 --conf spark.yarn.executor.memoryOverhead=4048 --conf spark.yarn.am.memory=5g --conf spark.driver.extraJavaOptions='-Dlog4j.configuration=file:/usr/local/share/spark/log4j.properties' --executor-memory 10g  --driver-memory 10g /usr/local/share/spark/JARS/FetchAndMoveData-0.0.1-SNAPSHOT.jar /usr/local/share/spark/config/s3tomysql.param FETCHANDMOVE
   
-  you should be able to see the data in your mysql db once the job finishes.
+  you should be able to see the data in your mysql db once the job is completed.
 
 ## Note
 
-You can add more source systems by creating a new method for each of the source. please refer to the code.
+You can add more source systems (mongodb, kafka etc) by creating a new method for each of the source. please refer the code.
 
 ## Documents for reference
 
-Please refer to attached data movement engine documents on knowing the parameters for each of the source/target mentioned above. Data movement engine part 3 contains the demo.
+Please refer to attached data movement engine documents to know the parameters for each of the source/target mentioned above. Data movement engine part 3 contains the demo pictures.
 
 ## Built With
 
