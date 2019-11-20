@@ -14,9 +14,9 @@ Total null records count
 
 ### Prerequisites
 
-1.Docker for Windows/Linux/Mac 
+1. Docker for Windows/Linux/Mac 
 
-2.pull the spark container from the repository
+2. pull the spark container from the repository
 
 3. pull the mysql container from docker
 
