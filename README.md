@@ -97,6 +97,8 @@ Ex param file :
 
 You can add more source systems (mongodb, kafka etc) by creating a new method for each of the source. please refer the code.
 
+We can use the crontab to schedule the job.
+
 ## Documents for reference
 
 Please refer to attached data movement engine documents to know the parameters for each of the source/target mentioned above. Data movement engine part 3 contains the demo pictures.
