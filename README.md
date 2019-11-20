@@ -109,7 +109,7 @@ Please refer to attached data movement engine documents to know the parameters f
 
 ## Authors
 
-* **Ashwini G N** - *Initial work* - [ashwininagataj964@gmail.com](https://github.com/AshwiniGN)
+* **Ashwini G N** - *complete work* - [ashwininagataj964@gmail.com](https://github.com/AshwiniGN)
 
 ## Acknowledgments
 
